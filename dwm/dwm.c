@@ -144,6 +144,7 @@ typedef struct {
 } Rule;
 
 /* function declarations */
+static void horizontaltile(Monitor *);
 static void applyrules(Client *c);
 static int applysizehints(Client *c, int *x, int *y, int *w, int *h, int interact);
 static void arrange(Monitor *m);
@@ -329,6 +330,31 @@ applyrules(Client *c)
 	if (ch.res_name)
 		XFree(ch.res_name);
 	c->tags = c->tags & TAGMASK ? c->tags & TAGMASK : c->mon->tagset[c->mon->seltags];
+}
+
+void
+horizontaltile(Monitor *m)
+{
+	unsigned int i, n, h, mw, mx, my;	
+    	Client *c;
+
+    	for(n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), n++);
+    		if(n == 0)
+        		return;
+
+		if(n > 1) { // More than one window
+        		mw = m->ww;   // Master width is the full monitor width
+	        	mx = 0;       // Master x at 0
+	        	my = 0;       // Master y at 0
+		        h = m->wh / n; // Height is screen height divided by number of windows
+		        for(i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++) {
+            			resize(c, mx, my, mw - (2*c->bw), h - (2*c->bw), 0);
+			            my += HEIGHT(c); // Increment y to place the next window below the current one
+        		}
+	       } else { // Only one window
+        		c = nexttiled(m->clients);
+		        resize(c, m->wx, m->wy, m->ww - (2*c->bw), m->wh - (2*c->bw), 0);
+		 }
 }
 
 int

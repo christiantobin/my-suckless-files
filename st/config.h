@@ -7,7 +7,7 @@
  */
 static char *font = "Hack:pixelsize=16:antialias=true:autohint=true";
 static char *font2[] = { "Apple Color Emoji:pixelsize=13:antialias=true:autohint=true", "OldHungarian:pixelsize=16", "JetBrainsMono Nerd Font :pixelsize=17:antialias=true:autohint=true" };
-static int borderpx = 2;
+static int borderpx = 3;
 
 /*
  * background image
@@ -121,31 +121,31 @@ float alphaUnfocus;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
+
   /* 8 normal colors */
-  [0] = "#2b303b", /* black   */
-  [1] = "#bf616a", /* red     */
-  [2] = "#a3be8c", /* green   */
-  [3] = "#ebcb8b", /* yellow  */
-  [4] = "#8fa1b3", /* blue    */
-  [5] = "#b48ead", /* magenta */
-  [6] = "#96b5b4", /* cyan    */
-  [7] = "#c0c5ce", /* white   */
+  [0] = "#14181c", /* black   */
+  [1] = "#1d2126", /* red     */
+  [2] = "#2c3239", /* green   */
+  [3] = "#424a53", /* yellow  */
+  [4] = "#5d6874", /* blue    */
+  [5] = "#7e8b9c", /* magenta */
+  [6] = "#a7b5c5", /* cyan    */
+  [7] = "#dee3e9", /* white   */
 
   /* 8 bright colors */
-  [8]  = "#65737e", /* black   */
-  [9]  = "#bf616a", /* red     */
-  [10] = "#a3be8c", /* green   */
-  [11] = "#ebcb8b", /* yellow  */
-  [12] = "#8fa1b3", /* blue    */
-  [13] = "#b48ead", /* magenta */
-  [14] = "#96b5b4", /* cyan    */
-  [15] = "#eff1f5", /* white   */
+  [8]  = "#d6b165", /* black   */
+  [9]  = "#89d072", /* red     */
+  [10] = "#f5a6b4", /* green   */
+  [11] = "#9bc5ef", /* yellow  */
+  [12] = "#dfa4e9", /* blue    */
+  [13] = "#d2ae66", /* magenta */
+  [14] = "#cbac73", /* cyan    */
+  [15] = "#deb350", /* white   */
 
   /* special colors */
-  [256] = "#2b303b", /* background */
-  [257] = "#c0c5ce", /* foreground */		
+  [256] = "#0c0e11", /* background */
+  [257] = "#c4cdd8", /* foreground */
 };
-
 
 /*
  * Default colors (colorname index)
@@ -157,6 +157,7 @@ unsigned int defaultbg = 256;
 unsigned int defaultcs = 257;
 unsigned int defaultrcs = 257;
 unsigned int background = 256;
+
 
 /*
  * Colors used, when the specific fg == defaultfg. So in reverse mode this

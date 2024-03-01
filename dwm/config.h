@@ -10,11 +10,11 @@ static const int splitstatus        = 1;        /* 1 for split status items */
 static const char *splitdelim        = ";";       /* Character used for separating status */
 static const char *fonts[]          = { "Hack:size=12", "Symbols Nerd Font:size=12" };
 static const char dmenufont[]       = "size=12";
-static const char col_gray3[]       = "#f1be9b"; 
-static const char col_gray1[]       = "#020914";
-static const char col_gray2[]       = "#a8856c";
-static const char col_gray4[]       = "#f1be9b"; 
-static const char col_cyan[]        = "#63576E";
+static const char col_gray3[]       = "#FEE884"; 
+static const char col_gray1[]       = "#356FE3";
+static const char col_gray2[]       = "#26466B";
+static const char col_gray4[]       = "#FFD0B5"; 
+static const char col_cyan[]        = "#ca3509";
 
 static const unsigned int baralpha = 140;
 static const unsigned int borderalpha = 140;
@@ -34,7 +34,7 @@ static const unsigned int alphas[][3]      = {
 
 /* tagging */
 //static const char *tags[] = { "Deus", "Vertias", "Pax", "Amor", "Libertas", "Sapientia", };
-static const char *tags[] = { "", "", "", "", "", "", };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -58,6 +58,7 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ "TTT",      horizontaltile }, /* custom layout for verticle screens */
 };
 
 /* key definitions */
