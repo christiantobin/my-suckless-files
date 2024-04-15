@@ -96,15 +96,16 @@ static Key keys[] = {
     /* modifier                     key        function        argument */
     /* Increase volume */
     {0, XF86XK_AudioRaiseVolume, spawn,
-     SHCMD("amixer set Master 5%+ unmute && notify-send -u low 'Volume' "
-           "$(amixer get "
-           "Master | grep -oE '[0-9]+%' | head -n 1)")},
+     SHCMD(
+         "amixer set Master 5%+ unmute && notify-send -u low -r 12345 -t 1234 "
+         "'Volume' \"$(amixer get Master | grep -oE '[0-9]+%' | head -n 1)\"")},
 
     /* Decrease volume */
     {0, XF86XK_AudioLowerVolume, spawn,
-     SHCMD("amixer set Master 5%- unmute && notify-send -u low 'Volume' "
-           "$(amixer get "
-           "Master | grep -oE '[0-9]+%' | head -n 1)")},
+     SHCMD(
+         "amixer set Master 5%- unmute && notify-send -u low -r 12345 -t 1234 "
+         "'Volume' \"$(amixer get Master | grep -oE '[0-9]+%' | head -n 1)\"")},
+
     {0, XK_Print, spawn,
      SHCMD("maim | xclip -selection clipboard -t image/png")},
     {MODKEY, XK_p, spawn, {.v = dmenucmd}},
